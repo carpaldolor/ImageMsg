@@ -1,4 +1,3 @@
-# ImageMsg 
 A Crypto-Steganography tool designed for Cyber Security Researchers to create .PNG files with encrypted steno payloads for testing detection tools.  It uses the LSB from all 3 color palates and pads unused space with random bits.  The contents of the payload are encypted with AES-256.
 
 For best results create a PNG carrier by conversion from a low quality JPG.  This will contain a good base line LSB bit distribution.
