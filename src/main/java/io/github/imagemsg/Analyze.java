@@ -29,29 +29,30 @@ public class Analyze {
 		System.out.println("Height: " + image.getHeight());
 		System.out.println("Width: " + image.getWidth());
 
-		int one = 0;
-		int zero = 0;
-		int b1 = 0;
+
+
+		ColorStats R = new ColorStats("R") ;
+		ColorStats G = new ColorStats("G") ;
+		ColorStats B = new ColorStats("B") ;
+
 		int maxX = image.getWidth();
 		int maxY = image.getHeight();
 		for (int x = 0; x < maxX; x++) {
 			for (int y = 0; y < maxY; y++) {
 
-				int pix = image.getRGB​(x, y);
+				int pix = image.getRGB(x, y);
 
-				b1 = pix & 0x01;
-				if (b1 > 0) {
-					one++;
-				} else {
-					zero++;
-				}
+				R.add( pix & 0x01) ;
+				G.add( pix & 0x0100) ;
+				B.add( pix & 0x010000) ;
 
 			}
 		}
-		float zero_p = (float) (100 * zero) / (float) (one + zero);
-		float one_p = (float) (100 * one) / (float) (one + zero);
-		System.out.println("zero: " + zero + " " + zero_p);
-		System.out.println("one:  " + one + " " + one_p);
+
+		R.print() ;
+		G.print() ;
+		B.print() ;
+
 
 	}
 
